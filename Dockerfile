@@ -23,10 +23,10 @@ ENV BUNDLE_PATH=/.gems \
     GEM_HOME=/.gems
 ENV PATH="${BUNDLE_BIN}:${PATH}"
 
+RUN bundle install
+
 EXPOSE 3000
 
 RUN chown -R dev:dev /.gems
-
-RUN bundle install
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
