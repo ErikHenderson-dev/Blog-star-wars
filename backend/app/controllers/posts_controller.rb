@@ -1,10 +1,16 @@
+# fronze_string_literal: true
+
 class PostsController < ApplicationController
   def index
-    false
+    posts = Post.all
+
+    render json: posts
   end
 
   def show
-    false
+    posts = Post.find(permitted_params.to_h)
+
+    render json: posts
   end
 
   def create
@@ -20,4 +26,10 @@ class PostsController < ApplicationController
   end
 
   def destroy; end
+
+  private
+
+  def permitted_params
+    params.permit(:id)
+  end
 end
