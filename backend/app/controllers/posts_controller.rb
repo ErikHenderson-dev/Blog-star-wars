@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    posts = Post.find(permitted_params.to_h)
+    posts = Post.find(permitted_params[:id])
 
     render json: posts
   end
@@ -18,10 +18,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    false
-  end
-
-  def edit
     false
   end
 
