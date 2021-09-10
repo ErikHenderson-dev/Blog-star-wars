@@ -18,6 +18,9 @@ services:
       - BASE_HREF=/api
     depends_on:
       - postgres
+    env_file:
+      - ./backend/.env
+
   postgres:
     image: postgres
     volumes:
